@@ -1,0 +1,127 @@
+import { useRef, useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import heroCar from "@/assets/hero-car.png";
+import AnfrageKonfigurator, { AnfrageStartButton } from "@/components/anfrage/AnfrageKonfigurator";
+import WaitTimeTicker from "@/components/home/WaitTimeTicker";
+
+const ease = [0.16, 1, 0.3, 1] as const;
+
+const Hero = () => {
+  const [anfrageOpen, setAnfrageOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+
+  const bgScale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "12%"]);
+  const textOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+  const textY = useTransform(scrollYProgress, [0, 0.6], [0, 50]);
+  const buttonOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
+  const buttonY = useTransform(scrollYProgress, [0, 0.3], [0, 30]);
+
+  return (
+    <>
+      <header ref={ref} className="relative min-h-screen overflow-hidden flex flex-col md:justify-end">
+        {/* Parallax background with Ken-Burns reverse zoom entry */}
+        <motion.div
+          className="absolute inset-0"
+          style={{ scale: bgScale, y: bgY, willChange: "transform", transform: "translateZ(0)" }}
+        >
+          <motion.div
+            initial={{ scale: 1.15 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 1.8, ease }}
+            className="w-full h-full"
+          >
+            <img src={heroCar} alt="Luxusfahrzeug mit Premium-Felgen" className="absolute inset-0 w-full h-full object-cover" />
+          </motion.div>
+        </motion.div>
+
+        {/* Dark reveal overlay — fades from black to transparent */}
+        <motion.div
+          initial={{ opacity: 0.6 }}
+          animate={{ opacity: 0 }}
+          transition={{ duration: 1.2, ease }}
+          className="absolute inset-0 bg-black z-[1] pointer-events-none"
+        />
+
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent z-[2]" />
+
+        <div className="relative z-10 w-full max-w-[1400px] mx-auto px-3 md:px-6 pb-10 md:pb-24 text-left flex flex-col flex-1 md:flex-none justify-end">
+          {/* Text group — slower fade */}
+          <motion.div style={{ opacity: textOpacity, y: textY }}>
+            <div className="overflow-visible pb-2 md:pb-3">
+              <motion.h1
+                initial={{ clipPath: "inset(0 0 100% 0)", transform: "translateY(30%)" }}
+                animate={{ clipPath: "inset(0 0 0% 0)", transform: "translateY(0%)" }}
+                transition={{ duration: 1.1, ease, delay: 0.4 }}
+                className="text-[clamp(44px,12vw,64px)] md:text-[clamp(56px,5.5vw,88px)] leading-[1] md:leading-[0.94] tracking-[-0.03em] text-white uppercase mb-6 pb-[0.08em]"
+              >
+                <motion.span
+                  className="font-light inline-block"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.6, ease, delay: 0.4 }}
+                >
+                  Dein<br />Rundum-<br />Service
+                </motion.span>
+                <br />
+                <motion.span
+                  className="font-extrabold text-brand-accent inline-block"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.6, ease, delay: 0.48 }}
+                >
+                  ohne Termin
+                </motion.span>
+              </motion.h1>
+            </div>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, ease, delay: 1.1 }}
+              className="text-brand-body text-white max-w-[520px] mb-8"
+            >
+              Radwechsel, Reifen, Felgen, Einlagerung und Autoreinigung – alles an einem Ort.
+              Ohne Termin, einfach vorbeikommen. In Oftringen oder Langenthal.
+            </motion.p>
+          </motion.div>
+
+          {/* Button row — faster fade */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, ease, delay: 1.4 }}
+          >
+            <motion.div
+              style={{ opacity: buttonOpacity, y: buttonY }}
+              className="flex flex-col sm:flex-row items-stretch sm:items-center sm:justify-between w-full gap-4 sm:gap-0"
+            >
+              <div className="[&_button]:border-2 [&_button]:border-white/60 [&_button]:text-white [&_button:hover]:border-brand-accent/60">
+                <AnfrageStartButton variant="outline" onClick={() => setAnfrageOpen(true)} />
+              </div>
+              <WaitTimeTicker />
+            </motion.div>
+          </motion.div>
+
+          {/* Accent line — cinematic finale */}
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 0.8, ease, delay: 1.6 }}
+            className="w-16 h-[3px] bg-brand-accent origin-left mt-6"
+            style={{ opacity: buttonOpacity }}
+          />
+        </div>
+      </header>
+
+      <AnfrageKonfigurator isOpen={anfrageOpen} onClose={() => setAnfrageOpen(false)} />
+    </>
+  );
+};
+
+export default Hero;
