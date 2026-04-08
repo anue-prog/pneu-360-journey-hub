@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import PreisrechnerKonfigurator, { PreisrechnerStartButton } from "@/components/preisrechner/PreisrechnerKonfigurator";
 import RevealImage from "@/components/shared/ImageReveal";
+import BlockHeading from "@/components/shared/BlockHeading";
 import homeService from "@/assets/hero-workshop.webp";
 import { fadeIn, headingReveal, staggerItem } from "./animations";
 
@@ -28,13 +29,9 @@ const ServicesFullscreen = () => {
                 Unsere Dienstleistungen
               </p>
 
-              <motion.h2
-                {...headingReveal()}
-                className="text-brand-heading leading-[1.0] tracking-[-0.03em] uppercase mb-6 md:mb-8"
-              >
-                <span className="font-extrabold">Alles rund</span><br />
-                <span className="font-extrabold text-muted-foreground">ums Rad</span>
-              </motion.h2>
+              <motion.div {...headingReveal()} className="mb-6 md:mb-8">
+                <BlockHeading lines={["Alles rund", "ums Rad"]} />
+              </motion.div>
 
               <motion.p {...fadeIn()} className="text-brand-body text-muted-foreground max-w-xl mb-8">
                 Vom Radwechsel bis zur Autoreinigung – alles an einem Ort. Einfach vorbeikommen.
