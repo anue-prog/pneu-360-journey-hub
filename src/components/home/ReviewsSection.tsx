@@ -40,7 +40,7 @@ const ReviewsSection = () => {
               {...headingReveal()}
               className="text-brand-heading leading-[1.0] tracking-[-0.03em] uppercase mb-6"
             >
-              <span className="font-light">Das sagen</span><br />
+              <span className="font-extrabold">Das sagen</span><br />
               <span className="font-extrabold text-muted-foreground">unsere Kunden</span>
             </motion.h2>
             <div className="flex items-center gap-3 mb-4">

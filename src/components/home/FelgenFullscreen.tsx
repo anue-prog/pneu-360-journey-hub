@@ -27,7 +27,7 @@ const FelgenFullscreen = () => {
                 {...headingReveal()}
                 className="text-brand-heading leading-[1.0] tracking-[-0.03em] uppercase mb-6 md:mb-8"
               >
-                <span className="font-light">Die richtige</span><br />
+                <span className="font-extrabold">Die richtige</span><br />
                 <span className="font-extrabold text-muted-foreground">Felge</span>
               </motion.h2>
 

@@ -54,7 +54,7 @@ const UeberUns = () => (
         {...headingReveal()}
         className="text-brand-heading leading-[1.0] tracking-[-0.03em] uppercase mb-10 md:mb-12"
       >
-        <span className="font-light">Modern.</span><br />
+        <span className="font-extrabold">Modern.</span><br />
         <span className="font-extrabold text-muted-foreground">Unkompliziert.</span>
       </motion.h2>
 

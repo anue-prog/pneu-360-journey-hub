@@ -32,7 +32,7 @@ const ServicesFullscreen = () => {
                 {...headingReveal()}
                 className="text-brand-heading leading-[1.0] tracking-[-0.03em] uppercase mb-6 md:mb-8"
               >
-                <span className="font-light">Alles rund</span><br />
+                <span className="font-extrabold">Alles rund</span><br />
                 <span className="font-extrabold text-muted-foreground">ums Rad</span>
               </motion.h2>
 

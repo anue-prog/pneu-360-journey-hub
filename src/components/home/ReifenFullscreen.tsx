@@ -32,7 +32,7 @@ const ReifenFullscreen = () => {
                 {...headingReveal()}
                 className="text-brand-heading leading-[1.0] tracking-[-0.03em] uppercase mb-6 md:mb-8"
               >
-                <span className="font-light">Dein</span><br />
+                <span className="font-extrabold">Dein</span><br />
                 <span className="font-extrabold text-muted-foreground">Reifen.</span>
               </motion.h2>
 

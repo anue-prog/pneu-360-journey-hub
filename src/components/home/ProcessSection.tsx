@@ -19,7 +19,7 @@ const ProcessSection = () => {
           {...headingReveal()}
           className="text-brand-heading leading-[1.0] tracking-[-0.03em] uppercase mb-8 md:mb-10"
         >
-          <span className="font-light">In 3 Schritten</span><br />
+          <span className="font-extrabold">In 3 Schritten</span><br />
           <span className="font-extrabold text-muted-foreground">zum Service</span>
         </motion.h2>
 
