@@ -46,7 +46,7 @@ const ReifenFullscreen = () => {
             </div>
           </div>
 
-          <div className="space-y-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10">
             {tires.map((t, i) => (
               <motion.div key={t.name} {...staggerItem(i)}>
                 <Link
