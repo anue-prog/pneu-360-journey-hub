@@ -3,10 +3,9 @@ import { useRef, useEffect, useState } from "react";
 interface BlockHeadingProps {
   lines: string[];
   className?: string;
-  maxWidth?: number;
 }
 
-const BlockHeading = ({ lines, className = "", maxWidth = 680 }: BlockHeadingProps) => {
+const BlockHeading = ({ lines, className = "" }: BlockHeadingProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const lineRefs = useRef<(HTMLSpanElement | null)[]>([]);
   const [fontSizes, setFontSizes] = useState<number[]>([]);
@@ -16,7 +15,7 @@ const BlockHeading = ({ lines, className = "", maxWidth = 680 }: BlockHeadingPro
       const container = containerRef.current;
       if (!container) return;
 
-      const containerWidth = Math.min(container.offsetWidth, maxWidth);
+      const containerWidth = container.offsetWidth;
       const baseFontSize = 16;
 
       // Reset to measure natural widths
@@ -46,7 +45,7 @@ const BlockHeading = ({ lines, className = "", maxWidth = 680 }: BlockHeadingPro
   }, [lines]);
 
   return (
-    <h2 ref={containerRef} className={`overflow-hidden ${className}`} style={{ maxWidth: `${maxWidth}px` }}>
+    <h2 ref={containerRef} className={`overflow-hidden w-full ${className}`}>
       {lines.map((line, i) => (
         <span
           key={i}
