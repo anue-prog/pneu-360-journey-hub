@@ -118,7 +118,7 @@ const ServicePageHero = ({ image, alt, label, title, titleAccent, subtitle, vide
         </motion.button>
       )}
 
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto pb-10 md:pb-24 text-left flex flex-col flex-1 md:flex-none justify-end">
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-3 md:px-0 pb-10 md:pb-24 text-left flex flex-col flex-1 md:flex-none justify-end">
         <motion.div style={{ opacity: textOpacity, y: textY }} className="w-full">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 md:gap-12">
             {/* Left: Title */}
@@ -127,7 +127,7 @@ const ServicePageHero = ({ image, alt, label, title, titleAccent, subtitle, vide
                 initial={{ clipPath: "inset(0 0 100% 0)", transform: "translateY(30%)" }}
                 animate={{ clipPath: "inset(0 0 0% 0)", transform: "translateY(0%)" }}
                 transition={{ duration: 1.1, ease, delay: 0.4 }}
-                className="text-[clamp(52px,14vw,72px)] md:text-[clamp(64px,6.5vw,108px)] leading-[0.92] tracking-[-0.03em] text-white uppercase pb-[0.08em]"
+                className="text-[clamp(36px,10vw,56px)] md:text-[clamp(64px,6.5vw,108px)] leading-[0.92] tracking-[-0.03em] text-white uppercase pb-[0.08em]"
               >
                 <motion.span
                   className="font-extrabold inline-block"
