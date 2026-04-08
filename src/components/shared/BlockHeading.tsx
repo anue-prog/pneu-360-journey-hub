@@ -45,13 +45,13 @@ const BlockHeading = ({ lines, className = "" }: BlockHeadingProps) => {
   }, [lines]);
 
   return (
-    <h2 ref={containerRef} className={`overflow-hidden w-full ${className}`}>
+    <h2 ref={containerRef} className={`flex w-full flex-col items-start overflow-hidden ${className}`}>
       {lines.map((line, i) => (
         <span
           key={i}
           ref={(el) => { lineRefs.current[i] = el; }}
           style={{ fontSize: fontSizes[i] ? `${fontSizes[i]}px` : undefined }}
-          className="block whitespace-nowrap leading-[0.92] font-extrabold uppercase tracking-[-0.03em]"
+          className="inline-block whitespace-nowrap leading-[0.92] font-semibold uppercase tracking-[-0.03em]"
         >
           {line}
         </span>
