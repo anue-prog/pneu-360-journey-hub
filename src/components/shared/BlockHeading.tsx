@@ -7,7 +7,6 @@ interface BlockHeadingProps {
 
 const BlockHeading = ({ lines, className = "" }: BlockHeadingProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const lineRefs = useRef<(HTMLSpanElement | null)[]>([]);
   const [fontSizes, setFontSizes] = useState<number[]>([]);
 
   useEffect(() => {
@@ -15,43 +14,46 @@ const BlockHeading = ({ lines, className = "" }: BlockHeadingProps) => {
       const container = containerRef.current;
       if (!container) return;
 
-      const containerWidth = container.offsetWidth;
-      const baseFontSize = 16;
+      const targetWidth = container.offsetWidth;
+      if (targetWidth === 0) return;
 
-      // Reset to measure natural widths
-      lineRefs.current.forEach((el) => {
-        if (el) el.style.fontSize = `${baseFontSize}px`;
-      });
+      // Measure each line's natural text width using a hidden canvas
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d");
+      if (!ctx) return;
 
-      // Force reflow
-      void container.offsetHeight;
+      const baseFontSize = 100; // Use large base for accurate measurement
+      const style = getComputedStyle(container);
+      const fontFamily = style.fontFamily || "Inter, sans-serif";
 
-      const newSizes = lineRefs.current.map((el) => {
-        if (!el) return baseFontSize;
-        const naturalWidth = el.scrollWidth;
-        if (naturalWidth === 0) return baseFontSize;
-        const scale = containerWidth / naturalWidth;
-        return baseFontSize * scale;
+      const newSizes = lines.map((line) => {
+        ctx.font = `800 ${baseFontSize}px ${fontFamily}`;
+        const textWidth = ctx.measureText(line.toUpperCase()).width;
+        if (textWidth === 0) return baseFontSize;
+        const scale = targetWidth / textWidth;
+        return Math.floor(baseFontSize * scale);
       });
 
       setFontSizes(newSizes);
     };
 
-    calculate();
+    // Small delay to ensure container is laid out
+    requestAnimationFrame(calculate);
 
-    const observer = new ResizeObserver(calculate);
+    const observer = new ResizeObserver(() => {
+      requestAnimationFrame(calculate);
+    });
     if (containerRef.current) observer.observe(containerRef.current);
     return () => observer.disconnect();
   }, [lines]);
 
   return (
-    <h2 ref={containerRef} className={`flex w-full flex-col items-start overflow-hidden ${className}`}>
+    <h2 ref={containerRef} className={`w-full overflow-hidden ${className}`}>
       {lines.map((line, i) => (
         <span
           key={i}
-          ref={(el) => { lineRefs.current[i] = el; }}
-          style={{ fontSize: fontSizes[i] ? `${fontSizes[i]}px` : undefined }}
-          className="inline-block whitespace-nowrap leading-[0.92] font-semibold uppercase tracking-[-0.03em]"
+          style={{ fontSize: fontSizes[i] ? `${fontSizes[i]}px` : "48px" }}
+          className="block whitespace-nowrap leading-[0.92] font-extrabold uppercase tracking-[-0.03em]"
         >
           {line}
         </span>
