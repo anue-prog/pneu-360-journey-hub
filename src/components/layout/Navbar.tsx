@@ -128,36 +128,27 @@ const Navbar = () => {
               <Phone size={22} strokeWidth={2} />
             </button>
 
-            {/* Premium burger — staggered lines with asymmetric widths */}
+            {/* Minimal 2-line burger */}
             <motion.button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="relative flex flex-col justify-center items-end gap-[6px] w-10 h-10 cursor-pointer"
+              className="relative flex flex-col justify-center items-end gap-[7px] w-9 h-9 cursor-pointer"
               aria-label="Menu"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileTap={{ scale: 0.92 }}
             >
               <motion.span
                 animate={menuOpen
-                  ? { rotate: 45, y: 8, width: "28px" }
-                  : { rotate: 0, y: 0, width: "28px" }
+                  ? { rotate: 45, y: 4.5, width: "24px" }
+                  : { rotate: 0, y: 0, width: "24px" }
                 }
-                transition={{ duration: 0.4, ease }}
+                transition={{ duration: 0.35, ease }}
                 className="block h-[1.5px] bg-current origin-center"
               />
               <motion.span
                 animate={menuOpen
-                  ? { opacity: 0, x: 20, width: "20px" }
-                  : { opacity: 1, x: 0, width: "20px" }
+                  ? { rotate: -45, y: -4.5, width: "24px" }
+                  : { rotate: 0, y: 0, width: "16px" }
                 }
-                transition={{ duration: 0.25, ease }}
-                className="block h-[1.5px] bg-current origin-right"
-              />
-              <motion.span
-                animate={menuOpen
-                  ? { rotate: -45, y: -8, width: "28px" }
-                  : { rotate: 0, y: 0, width: "14px" }
-                }
-                transition={{ duration: 0.4, ease }}
+                transition={{ duration: 0.35, ease }}
                 className="block h-[1.5px] bg-current origin-center"
               />
             </motion.button>
