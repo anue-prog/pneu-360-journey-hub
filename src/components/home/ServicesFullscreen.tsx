@@ -57,24 +57,23 @@ const ServicesFullscreen = () => {
 
       {/* Service list */}
       <section className="bg-background py-16 md:py-24 px-3 md:px-6">
-        <div className="max-w-[1400px] mx-auto">
-            {services.map((s, i) => (
-              <motion.div key={s.name} {...staggerItem(i)}>
-                <Link
-                  to={s.link}
-                  className="group flex items-center gap-6 py-4 md:py-5 border-b border-border hover:border-brand-accent/60 transition-all duration-500"
-                >
-                  <div className="flex-1 flex items-baseline justify-between">
-                    <span className="text-lg md:text-2xl font-bold tracking-[-0.02em] uppercase group-hover:text-brand-accent transition-colors duration-500">
-                      {s.name}
-                    </span>
-                    <span className="text-sm text-muted-foreground hidden md:inline">{s.desc}</span>
-                  </div>
-                  <span className="text-brand-accent group-hover:translate-x-1 transition-transform duration-500">→</span>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
+        <div className="max-w-[1400px] mx-auto space-y-0">
+          {services.map((s, i) => (
+            <motion.div key={s.name} {...staggerItem(i)}>
+              <Link
+                to={s.link}
+                className="group flex items-center gap-6 py-4 md:py-5 border-b border-border hover:border-brand-accent/60 transition-all duration-500"
+              >
+                <div className="flex-1 flex items-baseline justify-between">
+                  <span className="text-lg md:text-2xl font-bold tracking-[-0.02em] uppercase group-hover:text-brand-accent transition-colors duration-500">
+                    {s.name}
+                  </span>
+                  <span className="text-sm text-muted-foreground hidden md:inline">{s.desc}</span>
+                </div>
+                <span className="text-brand-accent group-hover:translate-x-1 transition-transform duration-500">→</span>
+              </Link>
+            </motion.div>
+          ))}
         </div>
       </section>
 
