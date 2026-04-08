@@ -2,8 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import PreisrechnerKonfigurator, { PreisrechnerStartButton } from "@/components/preisrechner/PreisrechnerKonfigurator";
-import RevealImage from "@/components/shared/ImageReveal";
-import homeService from "@/assets/hero-workshop.webp";
+import servicesHero from "@/assets/services-hero.png";
 import { fadeIn, headingReveal, staggerItem } from "./animations";
 
 const services = [
@@ -20,37 +19,45 @@ const ServicesFullscreen = () => {
 
   return (
     <>
-      <section className="bg-background py-24 md:py-32 lg:py-40 px-3 md:px-6">
+      {/* Fullscreen hero image with overlaid text */}
+      <section className="relative min-h-[80vh] md:min-h-screen overflow-hidden flex items-end">
+        {/* Background image */}
+        <img
+          src={servicesHero}
+          alt="Team bei der Arbeit"
+          className="absolute inset-0 w-full h-full object-cover"
+          loading="lazy"
+        />
+        {/* Dark overlay — stronger on left for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
+
+        {/* Content */}
+        <div className="relative z-10 w-full max-w-[1400px] mx-auto px-3 md:px-6 pb-12 md:pb-20">
+          <p className="text-brand-label text-brand-accent mb-4">
+            Unsere Dienstleistungen
+          </p>
+
+          <motion.h2
+            {...headingReveal()}
+            className="text-[clamp(40px,10vw,80px)] md:text-[clamp(56px,6vw,96px)] leading-[0.95] tracking-[-0.03em] uppercase text-white font-extrabold mb-6 md:mb-8"
+          >
+            Alles rund<br />ums Rad
+          </motion.h2>
+
+          <motion.p {...fadeIn()} className="text-base md:text-lg text-white/70 max-w-xl mb-8">
+            Vom Radwechsel bis zur Autoreinigung – alles an einem Ort. Einfach vorbeikommen.
+          </motion.p>
+
+          <motion.div {...fadeIn()}>
+            <PreisrechnerStartButton label="Jetzt Kosten berechnen" onClick={() => setPreisrechnerOpen(true)} />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Service list */}
+      <section className="bg-background py-16 md:py-24 px-3 md:px-6">
         <div className="max-w-[1400px] mx-auto">
-          <div className="grid md:grid-cols-2 gap-10 md:gap-20 items-start mb-20 md:mb-32">
-            <div>
-              <p className="text-brand-label text-brand-accent mb-4">
-                Unsere Dienstleistungen
-              </p>
-
-              <motion.h2
-                {...headingReveal()}
-                className="text-brand-heading leading-[1.0] tracking-[-0.03em] uppercase mb-6 md:mb-8"
-              >
-                <span className="font-extrabold">Alles rund</span><br />
-                <span className="font-extrabold text-muted-foreground">ums Rad</span>
-              </motion.h2>
-
-              <motion.p {...fadeIn()} className="text-brand-body text-muted-foreground max-w-xl mb-8">
-                Vom Radwechsel bis zur Autoreinigung – alles an einem Ort. Einfach vorbeikommen.
-              </motion.p>
-
-              <motion.div {...fadeIn()}>
-                <PreisrechnerStartButton label="Jetzt Kosten berechnen" onClick={() => setPreisrechnerOpen(true)} />
-              </motion.div>
-            </div>
-
-            <RevealImage>
-              <img src={homeService} alt="Radwechsel Service" className="w-full aspect-[4/3] object-cover" loading="lazy" />
-            </RevealImage>
-          </div>
-
-          <div className="space-y-0">
             {services.map((s, i) => (
               <motion.div key={s.name} {...staggerItem(i)}>
                 <Link
