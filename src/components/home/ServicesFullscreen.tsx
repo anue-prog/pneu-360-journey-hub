@@ -75,7 +75,6 @@ const ServicesFullscreen = () => {
               </motion.div>
             ))}
           </div>
-
         </div>
       </section>
 
