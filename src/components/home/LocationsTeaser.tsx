@@ -44,7 +44,7 @@ const LocationsTeaser = () => {
                 {...headingReveal()}
                 className="text-brand-heading leading-[1.0] tracking-[-0.03em] uppercase mb-6 md:mb-8"
               >
-                <span className="font-light">Einfach</span><br />
+                <span className="font-extrabold">Einfach</span><br />
                 <span className="font-extrabold text-muted-foreground">vorbeikommen</span>
               </motion.h2>
 
