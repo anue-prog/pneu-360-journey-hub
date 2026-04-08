@@ -102,7 +102,7 @@ const ServicePageHero = ({ image, alt, label, title, titleAccent, subtitle, vide
         )}
       </AnimatePresence>
 
-      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent z-[2]" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/5 to-transparent z-[2]" />
 
       {/* Play button */}
       {videoUrl && !showVideo && (
@@ -118,62 +118,73 @@ const ServicePageHero = ({ image, alt, label, title, titleAccent, subtitle, vide
         </motion.button>
       )}
 
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-3 md:px-6 pb-10 md:pb-24 text-left flex flex-col flex-1 md:flex-none justify-end">
-        {/* Text group — slower fade */}
-        <motion.div style={{ opacity: textOpacity, y: textY }}>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, ease, delay: 0.3 }}
-            className="text-brand-label text-brand-accent mb-4"
-          >
-            {label}
-          </motion.p>
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto pb-10 md:pb-24 text-left flex flex-col flex-1 md:flex-none justify-end">
+        <motion.div style={{ opacity: textOpacity, y: textY }} className="w-full">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 md:gap-12">
+            {/* Left: Title */}
+            <div className="overflow-visible pb-2 md:pb-3 md:flex-1">
+              <motion.h1
+                initial={{ clipPath: "inset(0 0 100% 0)", transform: "translateY(30%)" }}
+                animate={{ clipPath: "inset(0 0 0% 0)", transform: "translateY(0%)" }}
+                transition={{ duration: 1.1, ease, delay: 0.4 }}
+                className="text-[clamp(52px,14vw,72px)] md:text-[clamp(64px,6.5vw,108px)] leading-[0.92] tracking-[-0.03em] text-white uppercase pb-[0.08em]"
+              >
+                <motion.span
+                  className="font-extrabold inline-block"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.6, ease, delay: 0.4 }}
+                >
+                  {title}
+                </motion.span>
+                {titleAccent && (
+                  <>
+                    <br />
+                    <motion.span
+                      className="font-extrabold text-brand-accent inline-block"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.6, ease, delay: 0.48 }}
+                    >
+                      {titleAccent}
+                    </motion.span>
+                  </>
+                )}
+              </motion.h1>
+            </div>
 
-          <div className="overflow-visible pb-2 md:pb-3">
-            <motion.h1
-              initial={{ clipPath: "inset(0 0 100% 0)", transform: "translateY(30%)" }}
-              animate={{ clipPath: "inset(0 0 0% 0)", transform: "translateY(0%)" }}
-              transition={{ duration: 1.1, ease, delay: 0.4 }}
-              className="text-[clamp(36px,8vw,72px)] md:text-[clamp(48px,5.5vw,80px)] leading-[1] md:leading-[0.94] tracking-[-0.03em] text-white uppercase mb-6 pb-[0.08em]"
-            >
-              <span className="font-light">{title}</span>
-              {titleAccent && (
-                <>
-                  <br />
-                  <span className="font-extrabold text-brand-accent">{titleAccent}</span>
-                </>
-              )}
-            </motion.h1>
+            {/* Right: Description */}
+            {subtitle && (
+              <div className="md:flex-shrink-0 md:max-w-[360px] md:pb-3">
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.6, ease, delay: 1.1 }}
+                  className="text-brand-body text-white"
+                >
+                  {subtitle}
+                </motion.p>
+                {children && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.6, ease, delay: 1.4 }}
+                    className="mt-6"
+                  >
+                    {children}
+                  </motion.div>
+                )}
+              </div>
+            )}
           </div>
 
-          {subtitle && (
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, ease, delay: 1.1 }}
-              className="text-brand-body text-white max-w-[560px] mb-8"
-            >
-              {subtitle}
-            </motion.p>
-          )}
-        </motion.div>
-
-        {/* Bottom elements — faster fade */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, ease, delay: 1.4 }}
-        >
-          <motion.div style={{ opacity: bottomOpacity, y: bottomY }}>
-            <motion.div
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 0.8, ease, delay: 1.6 }}
-              className="w-16 h-[3px] bg-brand-accent origin-left"
-            />
-            {children && <div className="mt-8">{children}</div>}
-          </motion.div>
+          {/* Accent line — full width */}
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 1, ease, delay: 1.6 }}
+            className="w-full h-[2px] bg-white origin-left mt-6"
+          />
         </motion.div>
       </div>
     </header>
