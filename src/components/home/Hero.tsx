@@ -4,7 +4,6 @@ import heroCar from "@/assets/hero-car.png";
 import AnfrageKonfigurator, { AnfrageStartButton } from "@/components/anfrage/AnfrageKonfigurator";
 import WaitTimeTicker from "@/components/home/WaitTimeTicker";
 import PixelReveal from "@/components/shared/PixelReveal";
-import WaitTimeTicker from "@/components/home/WaitTimeTicker";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
