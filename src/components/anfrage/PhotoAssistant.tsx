@@ -47,7 +47,7 @@ interface Props {
 // ── Config ──
 
 const CONFIG = {
-  accentColor: "#ffc800",
+  accentColor: "#FFD600",
   textColor: "#ebebeb",
   secondaryTextColor: "#8c8c8c",
   borderLineColor: "#2e2e2e",
