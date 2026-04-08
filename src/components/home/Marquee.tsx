@@ -31,7 +31,7 @@ const LogoSet = () => (
         key={i}
         src={m.src}
         alt={m.name}
-        className="h-4 md:h-5 max-w-[80px] md:max-w-[100px] w-auto object-contain shrink-0 opacity-60 hover:opacity-100 transition-opacity duration-300 [filter:brightness(0)] dark:[filter:none]"
+        className="h-7 md:h-9 max-w-[120px] md:max-w-[160px] w-auto object-contain shrink-0 opacity-60 hover:opacity-100 transition-opacity duration-300 [filter:brightness(0)] dark:[filter:none]"
       />
     ))}
   </>
