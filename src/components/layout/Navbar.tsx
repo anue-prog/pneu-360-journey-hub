@@ -128,28 +128,39 @@ const Navbar = () => {
               <Phone size={22} strokeWidth={2} />
             </button>
 
-            {/* Burger button */}
-            <button
+            {/* Premium burger — staggered lines with asymmetric widths */}
+            <motion.button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="flex flex-col justify-center items-center gap-[5px] w-8 h-8 relative"
+              className="relative flex flex-col justify-center items-end gap-[6px] w-10 h-10 cursor-pointer"
               aria-label="Menu"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
               <motion.span
-                animate={menuOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
-                transition={{ duration: 0.3, ease }}
-                className="block w-7 h-[2px] bg-current origin-center"
+                animate={menuOpen
+                  ? { rotate: 45, y: 8, width: "28px" }
+                  : { rotate: 0, y: 0, width: "28px" }
+                }
+                transition={{ duration: 0.4, ease }}
+                className="block h-[1.5px] bg-current origin-center"
               />
               <motion.span
-                animate={menuOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
-                transition={{ duration: 0.2, ease }}
-                className="block w-7 h-[2px] bg-current origin-center"
+                animate={menuOpen
+                  ? { opacity: 0, x: 20, width: "20px" }
+                  : { opacity: 1, x: 0, width: "20px" }
+                }
+                transition={{ duration: 0.25, ease }}
+                className="block h-[1.5px] bg-current origin-right"
               />
               <motion.span
-                animate={menuOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
-                transition={{ duration: 0.3, ease }}
-                className="block w-7 h-[2px] bg-current origin-center"
+                animate={menuOpen
+                  ? { rotate: -45, y: -8, width: "28px" }
+                  : { rotate: 0, y: 0, width: "14px" }
+                }
+                transition={{ duration: 0.4, ease }}
+                className="block h-[1.5px] bg-current origin-center"
               />
-            </button>
+            </motion.button>
           </div>
         </div>
       </motion.nav>
