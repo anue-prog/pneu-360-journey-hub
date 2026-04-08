@@ -17,7 +17,7 @@ const ImageParallax = ({ src, alt }: { src: string; alt: string }) => {
   const scale = useTransform(scrollYProgress, [0, 1], [1.05, 1]);
 
   return (
-    <div ref={ref} className="overflow-hidden aspect-[4/3]">
+    <div ref={ref} className="overflow-hidden aspect-[16/10]">
       <motion.img
         src={src}
         alt={alt}
@@ -34,18 +34,22 @@ const LocationsTeaser = () => {
 
   return (
     <>
-      <section className="bg-background py-24 md:py-32 lg:py-40 px-3 md:px-6">
+      <section className="bg-background py-32 md:py-44 lg:py-56 px-3 md:px-6">
         <div className="max-w-[1400px] mx-auto">
+          {/* Full-width image strip */}
+          <motion.div {...fadeIn()} className="mb-20 md:mb-32 -mx-3 md:-mx-6">
+            <ImageParallax src={standortOftringen} alt="Standort Pneu 360 Oftringen" />
+          </motion.div>
+
           <div className="grid md:grid-cols-2 gap-10 md:gap-20 items-start mb-20 md:mb-32">
             <div>
               <p className="text-brand-label text-brand-accent mb-4">2 × vor Ort</p>
 
               <motion.h2
                 {...headingReveal()}
-                className="text-brand-heading leading-[1.0] tracking-[-0.03em] uppercase mb-6 md:mb-8"
+                className="text-brand-heading mb-6 md:mb-8"
               >
-                <span className="font-light">Einfach</span><br />
-                <span className="font-extrabold text-muted-foreground">vorbeikommen</span>
+                Einfach<br />vorbeikommen
               </motion.h2>
 
               <motion.p {...fadeIn()} className="text-brand-body text-muted-foreground max-w-xl mb-8">
@@ -62,8 +66,6 @@ const LocationsTeaser = () => {
                 </Link>
               </motion.div>
             </div>
-
-            <ImageParallax src={standortOftringen} alt="Standort Pneu 360 Oftringen" />
           </div>
 
           <div className="space-y-0">
@@ -71,16 +73,16 @@ const LocationsTeaser = () => {
               <motion.div key={loc.name} {...staggerItem(i)}>
                 <Link
                   to={`/standorte/${loc.name.toLowerCase()}`}
-                  className="group flex items-center gap-6 py-4 md:py-5 border-b border-border hover:border-brand-accent/60 transition-all duration-500"
+                  className="group flex items-center gap-6 py-5 md:py-7 border-b border-border hover:border-brand-accent/60 hover:bg-foreground/[0.02] transition-all duration-500 px-2 -mx-2"
                 >
                   <div className="flex-1 flex items-baseline justify-between">
                     <div>
-                      <span className="text-lg md:text-2xl font-bold tracking-[-0.02em] uppercase group-hover:text-brand-accent transition-colors duration-500">
+                      <span className="font-display text-xl md:text-3xl tracking-[-0.02em] uppercase group-hover:text-brand-accent transition-colors duration-500">
                         {loc.name}
                       </span>
-                      <span className="text-sm text-muted-foreground ml-4 hidden md:inline">{loc.sub}</span>
+                      <span className="text-sm text-muted-foreground ml-4 hidden md:inline font-body">{loc.sub}</span>
                     </div>
-                    <span className="text-xs md:text-sm text-muted-foreground hidden md:inline">{loc.hours}</span>
+                    <span className="text-xs md:text-sm text-muted-foreground hidden md:inline font-body">{loc.hours}</span>
                   </div>
                   <span className="text-brand-accent group-hover:translate-x-1 transition-transform duration-500">→</span>
                 </Link>

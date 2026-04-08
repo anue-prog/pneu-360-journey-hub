@@ -40,7 +40,7 @@ const Hero = () => {
           </motion.div>
         </motion.div>
 
-        {/* Dark reveal overlay — fades from black to transparent */}
+        {/* Dark reveal overlay */}
         <motion.div
           initial={{ opacity: 0.6 }}
           animate={{ opacity: 0 }}
@@ -48,32 +48,55 @@ const Hero = () => {
           className="absolute inset-0 bg-black z-[1] pointer-events-none"
         />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent z-[2]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-[2]" />
 
         <div className="relative z-10 w-full max-w-[1400px] mx-auto px-3 md:px-6 pb-10 md:pb-24 text-left flex flex-col flex-1 md:flex-none justify-end">
-          {/* Text group — slower fade */}
           <motion.div style={{ opacity: textOpacity, y: textY }}>
             <div className="overflow-visible pb-2 md:pb-3">
               <motion.h1
                 initial={{ clipPath: "inset(0 0 100% 0)", transform: "translateY(30%)" }}
                 animate={{ clipPath: "inset(0 0 0% 0)", transform: "translateY(0%)" }}
                 transition={{ duration: 1.1, ease, delay: 0.4 }}
-                className="text-[clamp(44px,12vw,64px)] md:text-[clamp(56px,5.5vw,88px)] leading-[1] md:leading-[0.94] tracking-[-0.03em] text-white uppercase mb-6 pb-[0.08em]"
+                className="font-display text-[clamp(52px,14vw,160px)] leading-[0.9] tracking-[-0.02em] text-white uppercase mb-6 pb-[0.08em]"
               >
                 <motion.span
-                  className="font-light inline-block"
+                  className="block"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.6, ease, delay: 0.4 }}
                 >
-                  Dein<br />Rundum-<br />Service
+                  Dein
                 </motion.span>
-                <br />
                 <motion.span
-                  className="font-extrabold text-brand-accent inline-block"
+                  className="block"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ duration: 0.6, ease, delay: 0.48 }}
+                  transition={{ duration: 0.6, ease, delay: 0.5 }}
+                >
+                  Rundum-
+                </motion.span>
+
+                {/* Editorial thin rule */}
+                <motion.div
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ duration: 0.8, ease, delay: 0.7 }}
+                  className="w-24 md:w-40 h-[1px] bg-white/40 origin-left my-2 md:my-4"
+                />
+
+                <motion.span
+                  className="block"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.6, ease, delay: 0.55 }}
+                >
+                  Service
+                </motion.span>
+                <motion.span
+                  className="block text-brand-accent"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.6, ease, delay: 0.65 }}
                 >
                   ohne Termin
                 </motion.span>
@@ -84,14 +107,13 @@ const Hero = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, ease, delay: 1.1 }}
-              className="text-brand-body text-white max-w-[520px] mb-8"
+              className="text-brand-body text-white/80 max-w-[520px] mb-8"
             >
               Radwechsel, Reifen, Felgen, Einlagerung und Autoreinigung – alles an einem Ort.
               Ohne Termin, einfach vorbeikommen. In Oftringen oder Langenthal.
             </motion.p>
           </motion.div>
 
-          {/* Button row — faster fade */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -108,7 +130,6 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Accent line — cinematic finale */}
           <motion.div
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}

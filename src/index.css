@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -107,8 +107,8 @@
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-weight: 800;
+    font-family: 'Anton', 'Inter', sans-serif;
+    font-weight: 400;
   }
   html {
     -webkit-tap-highlight-color: transparent;
@@ -129,33 +129,37 @@
 }
 
 @layer utilities {
-  /* === STRICT 3-TIER TYPOGRAPHY ===
-     Label:   11px · 500 · 3px tracking · uppercase
-     Body:    15px · 300 · 1.8 line-height
-     Heading: clamp responsive · 800 · tight tracking · uppercase
-     That's it. No exceptions. */
+  /* === EDITORIAL TYPOGRAPHY SYSTEM ===
+     Display: Anton — massive, condensed, uppercase
+     Body:    Inter 300 — luxurious readability
+     Label:   Inter 600 — refined micro-type */
 
   .text-brand-label {
-    font-size: 13px;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
     font-weight: 600;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
     text-transform: uppercase;
   }
   .text-brand-body {
-    font-size: 17px;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
     font-weight: 300;
-    line-height: 1.75;
+    line-height: 1.85;
   }
   .text-brand-heading {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: clamp(40px, 7vw, 72px);
-    font-weight: 800;
-    letter-spacing: -0.03em;
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(56px, 10vw, 140px);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    line-height: 0.92;
   }
   .text-brand-subheading {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: clamp(22px, 3vw, 32px);
-    font-weight: 500;
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(22px, 3vw, 36px);
+    font-weight: 400;
+    text-transform: uppercase;
   }
   .text-section-number {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -163,6 +167,21 @@
     font-weight: 700;
     line-height: 1;
     letter-spacing: -0.02em;
+  }
+  .text-editorial-display {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(80px, 15vw, 220px);
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 0.85;
+    letter-spacing: -0.02em;
+  }
+  .text-editorial-number {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(100px, 20vw, 280px);
+    font-weight: 400;
+    line-height: 0.8;
+    letter-spacing: -0.03em;
   }
 
   .grain-overlay {
