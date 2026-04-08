@@ -79,17 +79,8 @@ const Navbar = () => {
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
-  const logoClass = isHome && !scrolled
-    ? "h-20 md:h-24"
-    : scrolled
-      ? "h-14 md:h-11"
-      : "h-14 md:h-16";
-
-  const navHeight = isHome && !scrolled
-    ? "h-28 md:h-32"
-    : scrolled
-      ? "h-20 md:h-20"
-      : "h-22 md:h-24";
+  const logoClass = "h-10 md:h-12";
+  const navHeight = "h-16 md:h-20";
 
   return (
     <>
@@ -97,11 +88,11 @@ const Navbar = () => {
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease }}
-        className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] bg-transparent border-b border-transparent"
+        className="fixed top-0 left-0 right-0 z-50 bg-transparent"
       >
-        <div className={`max-w-[1400px] mx-auto flex items-center justify-between px-3 md:px-6 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${navHeight}`}>
+        <div className={`max-w-[1400px] mx-auto flex items-center justify-between px-4 md:px-6 ${navHeight}`}>
           <Link to="/" className="flex items-center mix-blend-difference">
-            <img src={logo} alt={siteConfig.firmaName} className={`w-auto transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] brightness-0 invert ${logoClass}`} />
+            <img src={logo} alt={siteConfig.firmaName} className={`w-auto brightness-0 invert ${logoClass}`} />
           </Link>
 
           {/* Right side controls */}
