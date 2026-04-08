@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import AnfrageKonfigurator, { AnfrageCompactButton } from "@/components/anfrage/AnfrageKonfigurator";
 import RevealImage from "@/components/shared/ImageReveal";
+import BlockHeading from "@/components/shared/BlockHeading";
 import reifenSommer from "@/assets/hero-reifen-strasse.webp";
 import { fadeIn, headingReveal, staggerItem } from "./animations";
 
@@ -28,13 +29,9 @@ const ReifenFullscreen = () => {
             <div className="order-1 md:order-2">
               <p className="text-brand-label text-brand-accent mb-4">Reifen</p>
 
-              <motion.h2
-                {...headingReveal()}
-                className="text-brand-heading leading-[1.0] tracking-[-0.03em] uppercase mb-6 md:mb-8"
-              >
-                <span className="font-extrabold">Dein</span><br />
-                <span className="font-extrabold text-muted-foreground">Reifen.</span>
-              </motion.h2>
+              <motion.div {...headingReveal()} className="mb-6 md:mb-8">
+                <BlockHeading lines={["Dein", "Reifen."]} />
+              </motion.div>
 
               <motion.p {...fadeIn()} className="text-brand-body text-muted-foreground max-w-xl mb-8">
                 Tausende Reifen an Lager – von Budget bis Premium. Nicht dabei? Innerhalb 24 Stunden organisiert.
