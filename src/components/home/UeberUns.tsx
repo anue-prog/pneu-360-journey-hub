@@ -64,7 +64,7 @@ const UeberUns = () => (
         Schnell. Fair. Persönlich.
       </motion.p>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-16 mb-20">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-16 mb-20">
         {stats.map((stat, i) => (
           <AnimatedStat
             key={stat.label}
