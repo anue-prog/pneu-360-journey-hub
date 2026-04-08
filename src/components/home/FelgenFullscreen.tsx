@@ -52,13 +52,13 @@ const FelgenFullscreen = () => {
                   to={f.link}
                   className="group flex items-center gap-6 py-4 md:py-5 border-b border-border hover:border-brand-accent/60 transition-all duration-500"
                 >
-                  <div className="flex-1 flex items-baseline justify-between">
-                    <span className="text-lg md:text-2xl font-bold tracking-[-0.02em] uppercase group-hover:text-brand-accent transition-colors duration-500">
+                  <div className="flex-1">
+                    <span className="text-lg md:text-2xl font-bold tracking-[-0.02em] uppercase group-hover:text-brand-accent transition-colors duration-500 block">
                       {f.name}
                     </span>
-                    <span className="text-sm text-muted-foreground hidden md:inline">{f.sub}</span>
+                    <span className="text-sm text-muted-foreground block mt-1">{f.sub}</span>
                   </div>
-                  <span className="text-brand-accent group-hover:translate-x-1 transition-transform duration-500">→</span>
+                  <span className="text-brand-accent group-hover:translate-x-1 transition-transform duration-500 flex-shrink-0">→</span>
                 </Link>
               </motion.div>
             ))}
