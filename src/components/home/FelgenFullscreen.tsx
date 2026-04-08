@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import AnfrageKonfigurator, { AnfrageCompactButton } from "@/components/anfrage/AnfrageKonfigurator";
 import RevealImage from "@/components/shared/ImageReveal";
-import BlockHeading from "@/components/shared/BlockHeading";
 import felgenAlu from "@/assets/hero-felge-premium.webp";
 import { fadeIn, headingReveal, staggerItem } from "./animations";
 
@@ -24,9 +23,13 @@ const FelgenFullscreen = () => {
             <div>
               <p className="text-brand-label text-brand-accent mb-4">Felgen & Kompletträder</p>
 
-              <motion.div {...headingReveal()} className="mb-6 md:mb-8">
-                <BlockHeading lines={["Die richtige", "Felge"]} />
-              </motion.div>
+              <motion.h2
+                {...headingReveal()}
+                className="text-brand-heading leading-[1.0] tracking-[-0.03em] uppercase mb-6 md:mb-8"
+              >
+                <span className="font-extrabold">Die richtige</span><br />
+                <span className="font-extrabold text-muted-foreground">Felge</span>
+              </motion.h2>
 
               <motion.p {...fadeIn()} className="text-brand-body text-muted-foreground max-w-xl mb-8">
                 Grosse Auswahl an Alufelgen und Kompletträdern – viele Modelle ohne MFK-Eintragung. Komm vorbei oder schick uns deine Anfrage.
