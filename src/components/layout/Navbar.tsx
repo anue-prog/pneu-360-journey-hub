@@ -193,8 +193,6 @@ const Navbar = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />
               </motion.div>
 
-              {/* Navigation content */}
-              <div className="flex-1 bg-[#0a0a0a] flex flex-col overflow-y-auto">
                 {/* Top bar */}
                 <div className="flex items-center justify-between px-6 md:px-12 h-24 md:h-28 shrink-0">
                   <Link to="/" onClick={() => setMenuOpen(false)}>
