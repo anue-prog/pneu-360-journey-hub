@@ -3,7 +3,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import heroCar from "@/assets/hero-car.png";
 import AnfrageKonfigurator, { AnfrageStartButton } from "@/components/anfrage/AnfrageKonfigurator";
 import WaitTimeTicker from "@/components/home/WaitTimeTicker";
-import PixelReveal from "@/components/shared/PixelReveal";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -35,7 +34,7 @@ const Hero = () => {
             transition={{ duration: 1.8, ease }}
             className="w-full h-full"
           >
-            <PixelReveal src={heroCar} alt="Luxusfahrzeug mit Premium-Felgen" className="absolute inset-0 w-full h-full" duration={1800} initialPixelSize={64} />
+            <img src={heroCar} alt="Luxusfahrzeug mit Premium-Felgen" className="absolute inset-0 w-full h-full object-cover" />
           </motion.div>
         </motion.div>
 
