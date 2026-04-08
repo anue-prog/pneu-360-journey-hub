@@ -29,7 +29,7 @@ const ProcessSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {steps.map((step, i) => (
-            <motion.div key={step.title} {...staggerItem(i)} className="border border-border p-10 md:p-14">
+            <motion.div key={step.title} {...staggerItem(i)} className="border border-border p-6 md:p-14">
               <p className="text-6xl font-black text-brand-accent/20 mb-6">{step.num}</p>
               <p className="text-xl md:text-2xl font-bold uppercase tracking-[-0.02em] text-foreground mb-4">{step.title}</p>
               <p className="text-base md:text-lg text-muted-foreground leading-relaxed">{step.desc}</p>
