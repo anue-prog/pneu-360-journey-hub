@@ -97,11 +97,7 @@ const Navbar = () => {
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-          scrolled
-            ? "bg-background/20 backdrop-blur-2xl border-b border-border/20"
-            : "bg-transparent backdrop-blur-none border-b border-transparent"
-        }`}
+        className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] bg-transparent border-b border-transparent"
       >
         <div className={`max-w-[1400px] mx-auto flex items-center justify-between px-3 md:px-6 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${navHeight}`}>
           <Link to="/" className="flex items-center mix-blend-difference">
