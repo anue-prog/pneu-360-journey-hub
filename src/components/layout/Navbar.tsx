@@ -96,10 +96,10 @@ const Navbar = () => {
           </Link>
 
           {/* Right side controls */}
-          <div className={`flex items-center gap-5 ${isHeroVisible ? "text-white" : "text-foreground"}`}>
+          <div className={`flex items-center gap-6 ${isHeroVisible ? "text-white" : "text-foreground"}`}>
             <button
               onClick={toggleTheme}
-              className="opacity-70 hover:opacity-100 transition-opacity"
+              className="opacity-60 hover:opacity-100 transition-opacity"
               aria-label="Theme wechseln"
             >
               {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
@@ -107,16 +107,9 @@ const Navbar = () => {
             <button
               onClick={() => setCallOpen(true)}
               aria-label="Anrufen"
-              className="hidden md:block opacity-70 hover:opacity-100 transition-opacity"
+              className="opacity-60 hover:opacity-100 transition-opacity"
             >
-              <Phone size={18} strokeWidth={2} />
-            </button>
-            <button
-              className="md:hidden opacity-70 hover:opacity-100 transition-opacity"
-              onClick={() => setCallOpen(true)}
-              aria-label="Anrufen"
-            >
-              <Phone size={22} strokeWidth={2} />
+              <Phone size={18} strokeWidth={1.5} />
             </button>
 
             {/* Minimal 2-line burger */}
