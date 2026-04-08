@@ -158,43 +158,20 @@ const Navbar = () => {
         </div>
       </motion.nav>
 
-      {/* Premium slide-in nav panel */}
+      {/* Premium fullscreen nav panel */}
       <AnimatePresence>
         {menuOpen && (
           <>
-            {/* Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.4, ease }}
-              className="fixed inset-0 z-[55] bg-black/40 backdrop-blur-sm"
-              onClick={() => setMenuOpen(false)}
-            />
-
-            {/* Panel container */}
+            {/* Nav content — slides in first */}
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "tween", duration: 0.55, ease }}
-              className="fixed top-0 right-0 bottom-0 z-[56] flex w-full md:w-[92%] lg:w-[85%]"
+              exit={{ x: "100%", transition: { delay: 0.15, duration: 0.45, ease } }}
+              transition={{ type: "tween", duration: 0.5, ease }}
+              className="fixed inset-0 z-[56] flex"
             >
-              {/* Image strip — hidden on mobile, visible on desktop */}
-              <div className="hidden md:block relative w-[30%] lg:w-[35%] overflow-hidden">
-                <motion.img
-                  src={navImage}
-                  alt=""
-                  initial={{ scale: 1.15 }}
-                  animate={{ scale: 1 }}
-                  transition={{ duration: 1.2, ease }}
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/30" />
-              </div>
-
-              {/* Navigation content */}
-              <div className="flex-1 bg-[#0a0a0a] flex flex-col overflow-y-auto">
+              {/* Navigation panel */}
+              <div className="flex-1 md:w-[65%] lg:w-[60%] bg-[#0a0a0a] flex flex-col overflow-y-auto">
                 {/* Top bar */}
                 <div className="flex items-center justify-between px-6 md:px-12 h-24 md:h-28 shrink-0">
                   <Link to="/" onClick={() => setMenuOpen(false)}>
@@ -208,7 +185,6 @@ const Navbar = () => {
                   </button>
                 </div>
 
-                {/* Nav items */}
                 <nav className="flex-1 flex flex-col justify-center px-6 md:px-12 lg:px-16 gap-0">
                   {(navLinks as NavItem[]).map((item, i) => (
                     <motion.div
@@ -280,7 +256,6 @@ const Navbar = () => {
                   ))}
                 </nav>
 
-                {/* Bottom CTA */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -296,6 +271,25 @@ const Navbar = () => {
                   </Link>
                 </motion.div>
               </div>
+
+              {/* Decorative image — revealed with delay */}
+              <motion.div
+                initial={{ opacity: 0, x: 60 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 60, transition: { duration: 0.25, ease } }}
+                transition={{ delay: 0.35, duration: 0.6, ease }}
+                className="hidden md:block relative md:w-[35%] lg:w-[40%] overflow-hidden"
+              >
+                <motion.img
+                  src={navImage}
+                  alt=""
+                  initial={{ scale: 1.2 }}
+                  animate={{ scale: 1 }}
+                  transition={{ duration: 1.4, ease }}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />
+              </motion.div>
             </motion.div>
           </>
         )}
