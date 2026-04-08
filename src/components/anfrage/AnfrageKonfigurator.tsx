@@ -43,7 +43,7 @@ const DURATION = {
 };
 
 const CONFIG = {
-  accentColor: "#ffc800",
+  accentColor: "#FFD600",
   textColor: "#ebebeb",
   backgroundColor: "#0d0d0d",
   secondaryTextColor: "#8c8c8c",
