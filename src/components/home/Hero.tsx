@@ -97,7 +97,7 @@ const Hero = () => {
                   transition={{ duration: 0.6, ease, delay: 1.4 }}
                 >
                   <div className="flex flex-col gap-4">
-                    <div className="[&_button]:border-2 [&_button]:border-white/60 [&_button]:text-white [&_button:hover]:border-brand-accent/60">
+                    <div className="[&_button]:border-2 [&_button]:border-white [&_button]:text-white [&_button:hover]:border-brand-accent">
                       <AnfrageStartButton variant="outline" onClick={() => setAnfrageOpen(true)} />
                     </div>
                     <WaitTimeTicker />
