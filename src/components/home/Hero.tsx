@@ -51,71 +51,72 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent z-[2]" />
 
         <div className="relative z-10 w-full max-w-[1400px] mx-auto px-3 md:px-6 pb-10 md:pb-24 text-left flex flex-col flex-1 md:flex-none justify-end">
-          {/* Text group — slower fade */}
-          <motion.div style={{ opacity: textOpacity, y: textY }}>
-            <div className="overflow-visible pb-2 md:pb-3">
-              <motion.h1
-                initial={{ clipPath: "inset(0 0 100% 0)", transform: "translateY(30%)" }}
-                animate={{ clipPath: "inset(0 0 0% 0)", transform: "translateY(0%)" }}
-                transition={{ duration: 1.1, ease, delay: 0.4 }}
-                className="text-[clamp(44px,12vw,64px)] md:text-[clamp(56px,5.5vw,88px)] leading-[1] md:leading-[0.94] tracking-[-0.03em] text-white uppercase mb-6 pb-[0.08em]"
-              >
-                <motion.span
-                  className="font-light inline-block"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.6, ease, delay: 0.4 }}
+          <motion.div style={{ opacity: textOpacity, y: textY }} className="w-full">
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 md:gap-12">
+              {/* Left: Title */}
+              <div className="overflow-visible pb-2 md:pb-3 md:flex-1">
+                <motion.h1
+                  initial={{ clipPath: "inset(0 0 100% 0)", transform: "translateY(30%)" }}
+                  animate={{ clipPath: "inset(0 0 0% 0)", transform: "translateY(0%)" }}
+                  transition={{ duration: 1.1, ease, delay: 0.4 }}
+                  className="text-[clamp(52px,14vw,72px)] md:text-[clamp(64px,6.5vw,108px)] leading-[0.92] tracking-[-0.03em] text-white uppercase pb-[0.08em]"
                 >
-                  Dein<br />Rundum-<br />Service
-                </motion.span>
-                <br />
-                <motion.span
-                  className="font-extrabold text-brand-accent inline-block"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.6, ease, delay: 0.48 }}
-                >
-                  ohne Termin
-                </motion.span>
-              </motion.h1>
-            </div>
-
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, ease, delay: 1.1 }}
-              className="text-brand-body text-white max-w-[520px] mb-8"
-            >
-              Radwechsel, Reifen, Felgen, Einlagerung und Autoreinigung – alles an einem Ort.
-              Ohne Termin, einfach vorbeikommen. In Oftringen oder Langenthal.
-            </motion.p>
-          </motion.div>
-
-          {/* Button row — faster fade */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, ease, delay: 1.4 }}
-          >
-            <motion.div
-              style={{ opacity: buttonOpacity, y: buttonY }}
-              className="flex flex-col sm:flex-row items-stretch sm:items-center sm:justify-between w-full gap-4 sm:gap-0"
-            >
-              <div className="[&_button]:border-2 [&_button]:border-white/60 [&_button]:text-white [&_button:hover]:border-brand-accent/60">
-                <AnfrageStartButton variant="outline" onClick={() => setAnfrageOpen(true)} />
+                  <motion.span
+                    className="font-extrabold inline-block"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.6, ease, delay: 0.4 }}
+                  >
+                    Dein<br />Rundum-<br />Service
+                  </motion.span>
+                  <br />
+                  <motion.span
+                    className="font-extrabold text-brand-accent inline-block"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.6, ease, delay: 0.48 }}
+                  >
+                    ohne Termin
+                  </motion.span>
+                </motion.h1>
               </div>
-              <WaitTimeTicker />
-            </motion.div>
-          </motion.div>
 
-          {/* Accent line — cinematic finale */}
-          <motion.div
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 0.8, ease, delay: 1.6 }}
-            className="w-16 h-[3px] bg-brand-accent origin-left mt-6"
-            style={{ opacity: buttonOpacity }}
-          />
+              {/* Right: Description + Button */}
+              <div className="md:flex-shrink-0 md:max-w-[360px] md:pb-3 flex flex-col gap-6">
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.6, ease, delay: 1.1 }}
+                  className="text-brand-body text-white"
+                >
+                  Radwechsel, Reifen, Felgen, Einlagerung und Autoreinigung – alles an einem Ort.
+                  Ohne Termin, einfach vorbeikommen. In Oftringen oder Langenthal.
+                </motion.p>
+
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.6, ease, delay: 1.4 }}
+                >
+                  <motion.div style={{ opacity: buttonOpacity, y: buttonY }} className="flex flex-col gap-4">
+                    <div className="[&_button]:border-2 [&_button]:border-white/60 [&_button]:text-white [&_button:hover]:border-brand-accent/60">
+                      <AnfrageStartButton variant="outline" onClick={() => setAnfrageOpen(true)} />
+                    </div>
+                    <WaitTimeTicker />
+                  </motion.div>
+                </motion.div>
+
+                {/* Accent line */}
+                <motion.div
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ duration: 0.8, ease, delay: 1.6 }}
+                  className="w-16 h-[3px] bg-brand-accent origin-left"
+                  style={{ opacity: buttonOpacity }}
+                />
+              </div>
+            </div>
+          </motion.div>
         </div>
       </header>
 
