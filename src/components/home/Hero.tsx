@@ -98,12 +98,12 @@ const Hero = () => {
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.6, ease, delay: 1.4 }}
                 >
-                  <motion.div style={{ opacity: buttonOpacity, y: buttonY }} className="flex flex-col gap-4">
+                  <div className="flex flex-col gap-4">
                     <div className="[&_button]:border-2 [&_button]:border-white/60 [&_button]:text-white [&_button:hover]:border-brand-accent/60">
                       <AnfrageStartButton variant="outline" onClick={() => setAnfrageOpen(true)} />
                     </div>
                     <WaitTimeTicker />
-                  </motion.div>
+                  </div>
                 </motion.div>
 
               </div>
@@ -114,8 +114,7 @@ const Hero = () => {
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ duration: 1, ease, delay: 1.6 }}
-              className="w-full h-[2px] bg-brand-accent origin-left mt-6"
-              style={{ opacity: buttonOpacity }}
+              className="w-full h-[2px] bg-white origin-left mt-6"
             />
           </motion.div>
         </div>
