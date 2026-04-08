@@ -6,7 +6,7 @@ interface BlockHeadingProps {
   maxWidth?: number;
 }
 
-const BlockHeading = ({ lines, className = "", maxWidth = 420 }: BlockHeadingProps) => {
+const BlockHeading = ({ lines, className = "", maxWidth = 680 }: BlockHeadingProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const lineRefs = useRef<(HTMLSpanElement | null)[]>([]);
   const [fontSizes, setFontSizes] = useState<number[]>([]);
