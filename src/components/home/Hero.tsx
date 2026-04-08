@@ -106,16 +106,17 @@ const Hero = () => {
                   </motion.div>
                 </motion.div>
 
-                {/* Accent line */}
-                <motion.div
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: 1 }}
-                  transition={{ duration: 0.8, ease, delay: 1.6 }}
-                  className="w-16 h-[3px] bg-brand-accent origin-left"
-                  style={{ opacity: buttonOpacity }}
-                />
               </div>
             </div>
+
+            {/* Accent line — full width, left to right */}
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 1, ease, delay: 1.6 }}
+              className="w-full h-[2px] bg-brand-accent origin-left mt-6"
+              style={{ opacity: buttonOpacity }}
+            />
           </motion.div>
         </div>
       </header>
