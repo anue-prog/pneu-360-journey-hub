@@ -48,7 +48,7 @@ const Hero = () => {
 
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/5 to-transparent z-[2]" />
 
-        <div className="relative z-10 w-full max-w-[1400px] mx-auto px-3 md:px-6 pb-10 md:pb-24 text-left flex flex-col flex-1 md:flex-none justify-end">
+        <div className="relative z-10 w-full max-w-[1400px] mx-auto pb-10 md:pb-24 text-left flex flex-col flex-1 md:flex-none justify-end">
           <motion.div style={{ opacity: textOpacity, y: textY }} className="w-full">
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 md:gap-12">
               {/* Left: Title */}
