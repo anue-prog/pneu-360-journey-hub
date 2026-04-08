@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import AnfrageKonfigurator, { AnfrageCompactButton } from "@/components/anfrage/AnfrageKonfigurator";
+import RevealImage from "@/components/shared/ImageReveal";
 import felgenAlu from "@/assets/hero-felge-premium.webp";
 import { fadeIn, headingReveal, staggerItem } from "./animations";
 
@@ -16,19 +17,9 @@ const FelgenFullscreen = () => {
 
   return (
     <>
-      <section className="relative min-h-screen flex items-end overflow-hidden">
-        {/* Fullscreen background image */}
-        <div className="absolute inset-0">
-          <img src={felgenAlu} alt="Premium Felgen" className="w-full h-full object-cover" loading="lazy" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
-        </div>
-
-        <div className="relative z-10 w-full max-w-[1400px] mx-auto py-24 md:py-32 lg:py-40">
-          <div className="grid md:grid-cols-2 gap-10 md:gap-20 items-end">
-            {/* Left spacer */}
-            <div className="hidden md:block" />
-
-            {/* Right: Content */}
+      <section className="bg-background py-24 md:py-32 lg:py-40 px-3 md:px-6">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="grid md:grid-cols-2 gap-10 md:gap-20 items-start mb-20 md:mb-32">
             <div>
               <p className="text-brand-label text-brand-accent mb-4">Felgen & Kompletträder</p>
 
@@ -37,10 +28,10 @@ const FelgenFullscreen = () => {
                 className="text-brand-heading leading-[1.0] tracking-[-0.03em] uppercase mb-6 md:mb-8"
               >
                 <span className="font-extrabold">Die richtige</span><br />
-                <span className="font-extrabold">Felge</span>
+                <span className="font-extrabold text-muted-foreground">Felge</span>
               </motion.h2>
 
-              <motion.p {...fadeIn()} className="text-brand-body max-w-xl mb-8">
+              <motion.p {...fadeIn()} className="text-brand-body text-muted-foreground max-w-xl mb-8">
                 Grosse Auswahl an Alufelgen und Kompletträdern – viele Modelle ohne MFK-Eintragung. Komm vorbei oder schick uns deine Anfrage.
               </motion.p>
 
@@ -48,26 +39,31 @@ const FelgenFullscreen = () => {
                 <AnfrageCompactButton label="Felgen anfragen" onClick={() => setAnfrageOpen(true)} />
               </motion.div>
             </div>
+
+            <RevealImage>
+              <img src={felgenAlu} alt="Premium Felgen" className="w-full aspect-[4/3] object-cover" loading="lazy" />
+            </RevealImage>
           </div>
 
-          <div className="space-y-0 mt-20 md:mt-28">
+          <div className="space-y-0">
             {items.map((f, i) => (
               <motion.div key={f.name} {...staggerItem(i)}>
                 <Link
                   to={f.link}
-                  className="group flex items-center gap-6 py-4 md:py-5 border-b border-white/20 hover:border-brand-accent/60 transition-all duration-500"
+                  className="group flex items-center gap-6 py-4 md:py-5 border-b border-border hover:border-brand-accent/60 transition-all duration-500"
                 >
                   <div className="flex-1 flex items-baseline justify-between">
                     <span className="text-lg md:text-2xl font-bold tracking-[-0.02em] uppercase group-hover:text-brand-accent transition-colors duration-500">
                       {f.name}
                     </span>
-                    <span className="text-sm text-white/70 hidden md:inline">{f.sub}</span>
+                    <span className="text-sm text-muted-foreground hidden md:inline">{f.sub}</span>
                   </div>
                   <span className="text-brand-accent group-hover:translate-x-1 transition-transform duration-500">→</span>
                 </Link>
               </motion.div>
             ))}
           </div>
+
         </div>
       </section>
 
