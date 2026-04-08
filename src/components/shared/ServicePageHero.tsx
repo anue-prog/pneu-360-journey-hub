@@ -1,6 +1,7 @@
 import { useRef, useState, ReactNode } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { Play } from "lucide-react";
+import PixelReveal from "@/components/shared/PixelReveal";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -57,7 +58,7 @@ const ServicePageHero = ({ image, alt, label, title, titleAccent, subtitle, vide
                 transition={{ duration: 0.6 }}
                 className="absolute inset-0"
               >
-                <img src={image} alt={alt} className="w-full h-full object-cover" />
+                <PixelReveal src={image} alt={alt} className="w-full h-full" duration={1600} initialPixelSize={48} />
               </motion.div>
             )}
           </AnimatePresence>
