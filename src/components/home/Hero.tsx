@@ -19,8 +19,6 @@ const Hero = () => {
   const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "12%"]);
   const textOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
   const textY = useTransform(scrollYProgress, [0, 0.6], [0, 50]);
-  const buttonOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
-  const buttonY = useTransform(scrollYProgress, [0, 0.3], [0, 30]);
 
   return (
     <>
