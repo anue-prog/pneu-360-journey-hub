@@ -31,19 +31,19 @@ const LogoSet = () => (
         key={i}
         src={m.src}
         alt={m.name}
-        className="h-5 md:h-6 max-w-[90px] md:max-w-[110px] w-auto object-contain shrink-0 opacity-60 hover:opacity-100 transition-opacity duration-300 [filter:brightness(0)] dark:[filter:none]"
+        className="h-4 md:h-5 max-w-[80px] md:max-w-[100px] w-auto object-contain shrink-0 opacity-60 hover:opacity-100 transition-opacity duration-300 [filter:brightness(0)] dark:[filter:none]"
       />
     ))}
   </>
 );
 
 const Marquee = () => (
-  <div className="relative overflow-hidden py-8 md:py-10">
-    {/* Wide fade edges */}
+  <div className="relative overflow-hidden py-5 md:py-6">
+    {/* Wide fade edges – no hard borders */}
     <div className="absolute left-0 top-0 bottom-0 w-40 md:w-64 bg-gradient-to-r from-background via-background/80 to-transparent z-10" />
     <div className="absolute right-0 top-0 bottom-0 w-40 md:w-64 bg-gradient-to-l from-background via-background/80 to-transparent z-10" />
 
-    <div className="flex items-center gap-16 md:gap-24 animate-marquee w-max">
+    <div className="flex items-center gap-12 md:gap-20 animate-marquee w-max">
       <LogoSet />
       <LogoSet />
     </div>

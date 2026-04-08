@@ -13,6 +13,7 @@ const ReviewsSection = () => {
   const [progressKey, setProgressKey] = useState(0);
 
   const rating = parseFloat(siteConfig.reviewScore);
+  const totalReviews = siteConfig.reviewCount;
 
   useEffect(() => {
     setExpanded(false);
@@ -30,16 +31,17 @@ const ReviewsSection = () => {
   const displayText = review ? (isLong && !expanded ? review.text.slice(0, TEXT_LIMIT).trimEnd() + "…" : review.text) : "";
 
   return (
-    <section className="bg-background py-32 md:py-44 lg:py-56 px-3 md:px-6">
+    <section className="bg-background py-24 md:py-32 lg:py-40 px-3 md:px-6">
       <div className="max-w-[1400px] mx-auto">
         <div className="grid md:grid-cols-2 gap-16 md:gap-24 items-start">
           <div>
             <p className="text-brand-label text-brand-accent mb-4">Kundenstimmen</p>
             <motion.h2
               {...headingReveal()}
-              className="text-brand-heading mb-6"
+              className="text-brand-heading leading-[1.0] tracking-[-0.03em] uppercase mb-6"
             >
-              Das sagen<br />unsere Kunden
+              <span className="font-light">Das sagen</span><br />
+              <span className="font-extrabold text-muted-foreground">unsere Kunden</span>
             </motion.h2>
             <div className="flex items-center gap-3 mb-4">
               <div className="flex gap-0.5">
@@ -50,15 +52,13 @@ const ReviewsSection = () => {
               <span className="text-brand-body font-bold">{rating.toFixed(1)}</span>
               <span className="text-brand-body text-muted-foreground">/ 5 · Google</span>
             </div>
+            <p className="text-brand-body text-muted-foreground">
+              Das sagen unsere Kunden auf Google.
+            </p>
           </div>
 
-          <div className="relative">
-            {/* Oversized decorative quotation mark */}
-            <span className="font-display text-[clamp(120px,20vw,240px)] leading-none text-foreground/[0.04] absolute -top-16 -left-4 pointer-events-none select-none" aria-hidden>
-              &ldquo;
-            </span>
-
-            <div className="min-h-[160px] relative z-10">
+          <div>
+            <div className="min-h-[160px]">
               <AnimatePresence mode="wait">
                 {review && (
                   <motion.div
@@ -70,7 +70,7 @@ const ReviewsSection = () => {
                   >
                     <motion.p
                       layout
-                      className="text-[clamp(20px,3vw,36px)] font-light leading-[1.4] text-foreground/90 mb-4"
+                      className="text-[clamp(18px,2.5vw,28px)] font-light leading-relaxed text-foreground/90 mb-4"
                     >
                       {displayText}
                     </motion.p>
@@ -84,7 +84,7 @@ const ReviewsSection = () => {
                         weniger
                       </button>
                     )}
-                    <p className="mt-6 font-display text-xl uppercase text-foreground">{review.name}</p>
+                    <p className="mt-6 text-brand-label text-foreground">{review.name}</p>
                   </motion.div>
                 )}
               </AnimatePresence>

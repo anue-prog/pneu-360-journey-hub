@@ -8,9 +8,6 @@ import UeberUns from "@/components/home/UeberUns";
 import ReviewsSection from "@/components/home/ReviewsSection";
 import ProcessSection from "@/components/home/ProcessSection";
 import LocationsTeaser from "@/components/home/LocationsTeaser";
-import ImageDivider from "@/components/home/ImageDivider";
-import heroRoad from "@/assets/hero-road-dusk.webp";
-import homeFelge from "@/assets/home-felge-detail.jpg";
 
 const Index = () => {
   useEffect(() => {
@@ -22,10 +19,8 @@ const Index = () => {
       <Hero />
       <Marquee />
       <ServicesFullscreen />
-      <ImageDivider src={heroRoad} alt="Strasse bei Dämmerung" />
       <ReifenFullscreen />
       <FelgenFullscreen />
-      <ImageDivider src={homeFelge} alt="Felgen Detail" />
       <UeberUns />
       <ReviewsSection />
       <ProcessSection />

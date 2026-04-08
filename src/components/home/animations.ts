@@ -1,4 +1,4 @@
-// Editorial motion system — dramatic, cinematic timing
+// Unified motion system — clean, consistent fade-ups with a single easing curve.
 
 export const EASE = [0.16, 1, 0.3, 1] as const;
 export const VIEWPORT = { once: true, margin: "-8%" } as const;
@@ -6,18 +6,18 @@ export const GPU_STYLE = { willChange: "transform, opacity", transform: "transla
 
 /** Fade-up for content blocks */
 export const fadeIn = (delay = 0) => ({
-  initial: { opacity: 0, y: 24 },
+  initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
   viewport: VIEWPORT,
-  transition: { duration: 1.0, ease: EASE, delay },
+  transition: { duration: 0.8, ease: EASE, delay },
 });
 
 /** Heading reveal — slower, larger drift for emphasis */
 export const headingReveal = (delay = 0) => ({
-  initial: { opacity: 0, y: 40 },
+  initial: { opacity: 0, y: 32 },
   whileInView: { opacity: 1, y: 0 },
   viewport: VIEWPORT,
-  transition: { duration: 1.3, ease: EASE, delay },
+  transition: { duration: 1.1, ease: EASE, delay },
 });
 
 /** @deprecated Use headingReveal instead */
@@ -28,5 +28,5 @@ export const staggerItem = (index: number, baseDelay = 0) => ({
   initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
   viewport: VIEWPORT,
-  transition: { duration: 0.9, ease: EASE, delay: baseDelay + index * 0.1 },
+  transition: { duration: 0.8, ease: EASE, delay: baseDelay + index * 0.12 },
 });

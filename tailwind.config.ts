@@ -13,10 +13,6 @@ export default {
       },
     },
     extend: {
-      fontFamily: {
-        display: ["'Anton'", "sans-serif"],
-        body: ["'Inter'", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
-      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
