@@ -4,15 +4,15 @@ import heroCarDark from "@/assets/hero-car-night.png";
 import heroCarLight from "@/assets/hero-car-day.png";
 import AnfrageKonfigurator, { AnfrageStartButton } from "@/components/anfrage/AnfrageKonfigurator";
 import WaitTimeTicker from "@/components/home/WaitTimeTicker";
-import { useTheme } from "next-themes";
+import { useTheme } from "@/components/shared/ThemeProvider";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
 const Hero = () => {
   const [anfrageOpen, setAnfrageOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-  const { resolvedTheme } = useTheme();
-  const heroCar = resolvedTheme === "dark" ? heroCarDark : heroCarLight;
+  const { theme } = useTheme();
+  const heroCar = theme === "dark" ? heroCarDark : heroCarLight;
 
   const { scrollYProgress } = useScroll({
     target: ref,
