@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import heroCar from "@/assets/hero-car.png";
+import heroCar from "@/assets/hero-car-night.png";
 import AnfrageKonfigurator, { AnfrageStartButton } from "@/components/anfrage/AnfrageKonfigurator";
 import WaitTimeTicker from "@/components/home/WaitTimeTicker";
 
