@@ -11,8 +11,8 @@ const ease = [0.16, 1, 0.3, 1] as const;
 const Hero = () => {
   const [anfrageOpen, setAnfrageOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-  const { resolvedTheme } = useTheme();
-  const heroCar = resolvedTheme === "dark" ? heroCarDark : heroCarLight;
+  const { theme } = useTheme();
+  const heroCar = theme === "dark" ? heroCarDark : heroCarLight;
 
   const { scrollYProgress } = useScroll({
     target: ref,
