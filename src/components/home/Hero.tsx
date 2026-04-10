@@ -1,8 +1,10 @@
 import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import heroCar from "@/assets/hero-car-night.png";
+import heroCarDark from "@/assets/hero-car-night.png";
+import heroCarLight from "@/assets/hero-car-day.png";
 import AnfrageKonfigurator, { AnfrageStartButton } from "@/components/anfrage/AnfrageKonfigurator";
 import WaitTimeTicker from "@/components/home/WaitTimeTicker";
+import { useTheme } from "next-themes";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
